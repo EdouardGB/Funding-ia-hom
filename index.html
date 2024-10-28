@@ -3,30 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fundraise.ia - Page d'accueil</title>
+  <title>Page d'accueil</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    /* Animation de fondu en douceur */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .fade-in { animation: fadeIn 1s ease-out; }
+</head>
+<body class="font-sans antialiased bg-gray-100">
 
-    /* Animation de défilement pour révéler les sections */
-    .scroll-reveal { opacity: 0; transition: opacity 1s ease-out, transform 1s ease-out; }
-    .scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
-
-    /* Fond en dégradé animé */
-    .bg-gradient {
-      background: linear-gradient(45deg, #1e3a8a, #3b82f6, #1e3a8a);
-      background-size: 400% 400%;
-      animation: gradientBackground 15s ease infinite;
-    }
-    @keyframes gradientBackground {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+  <!-- Section d'en-tête -->
+  <header class="bg-blue-700 text-white p-4">
+    <div class="container mx-auto flex items-center justify-between">
+      <div class="text-lg font-semibold">Logo</div>
+      <nav class="flex space-x-4">
+        <a href="#" class="hover:underline">Accueil</a>
+        <a href="#" class="hover:underline">Fonctionnalités</a>
+        <a href="#" class="hover:underline">Tarifs</a>
+        <a href="#" class="hover:underline">Contact</a>
+      </nav>
+      <button class="bg-white text-blue-600 px-4 py-2 rounded">S'inscrire</button>
+    </div>
+  </header>
     }
 
   <!-- Section d'en-tête -->
