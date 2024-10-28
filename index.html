@@ -12,17 +12,8 @@
     .scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
   </style>
   <script>
-    // Fonction pour ajouter la classe "revealed" lors du défilement
-    document.addEventListener("DOMContentLoaded", function() {
-      const scrollElements = document.querySelectorAll(".scroll-reveal");
-      const scrollReveal = () => {
-        scrollElements.forEach((el) => {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= window.innerHeight - 100) {
-            el.classList.add("revealed");
-          }
-        });
-      };
+   
+  
       window.addEventListener("scroll", scrollReveal);
     });
   </script>
@@ -85,15 +76,15 @@
   <!-- Section Processus / Bénéfices -->
   <section class="container mx-auto py-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center scroll-reveal">
     <div class="bg-blue-50 p-6 rounded-lg shadow-lg transition duration-300 transform hover:scale-105">
-      <h4 class="text-lg font-semibold mb-2 text-blue-700">Étape 1</h4>
+      <h4 class="text-lg font-semibold mb-2 text-blue-700"></h4>
       <p class="text-gray-600">+100 entreprises clientes satisfaites</p>
     </div>
     <div class="bg-blue-50 p-6 rounded-lg shadow-lg transition duration-300 transform hover:scale-105">
-      <h4 class="text-lg font-semibold mb-2 text-blue-700">Étape 2</h4>
+      <h4 class="text-lg font-semibold mb-2 text-blue-700"></h4>
       <p class="text-gray-600">70% de gain de temps en moyenne</p>
     </div>
     <div class="bg-blue-50 p-6 rounded-lg shadow-lg transition duration-300 transform hover:scale-105">
-      <h4 class="text-lg font-semibold mb-2 text-blue-700">Étape 3</h4>
+      <h4 class="text-lg font-semibold mb-2 text-blue-700"></h4>
       <p class="text-gray-600">+1M€ débloqués</p>
     </div>
   </section>
