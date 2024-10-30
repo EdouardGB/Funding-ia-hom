@@ -3,159 +3,199 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page d'accueil - Moderne & Disruptif</title>
+  <title>Fundraise.ia - Landing Page</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    /* Fond dégradé élégant */
+    /* Styles de base */
     body {
-      background: linear-gradient(145deg, #111827, #1f2937);
-      color: #e0e7ff;
-      font-family: 'Arial', sans-serif;
+      background: #1c1c1e;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
       overflow-x: hidden;
+      line-height: 1.6;
+      scroll-behavior: smooth;
     }
-
-    /* Style général pour sections modernes */
     section {
-      padding: 4rem 2rem;
+      padding: 6rem 2rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s forwards ease-out;
     }
-
-    /* Titre principal avec effet néon minimal */
-    .title-main {
+    /* Animation d'apparition */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    /* Titre et CTA */
+    .main-title {
       font-size: 3.5rem;
-      color: #00e6ff;
-      text-shadow: 0 4px 8px rgba(0, 230, 255, 0.4), 0 -4px 8px rgba(255, 255, 255, 0.1);
+      font-weight: 700;
+      color: #f1c40f;
       margin: 0;
-      animation: floatText 4s ease-in-out infinite alternate;
+      text-transform: uppercase;
+      animation: slideIn 1s ease-out;
     }
-
-    /* Sous-titre élégant et léger */
-    .subtitle {
-      font-size: 1.2rem;
-      color: #9ca3af;
-      max-width: 600px;
-    }
-
-    /* Carte minimaliste avec effets de profondeur */
-    .card {
-      background: #1f2937;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
-      width: 100%;
-      max-width: 350px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0px 8px 20px rgba(0, 230, 255, 0.3);
-    }
-
-    /* Style des boutons moderne et minimal */
-    .btn-main {
-      background: #00e6ff;
-      color: #111827;
+    .cta-button {
+      background: none;
+      border: 1px solid #f1c40f;
+      color: #f1c40f;
       padding: 0.75rem 2rem;
-      border-radius: 30px;
-      font-weight: bold;
-      transition: transform 0.3s ease;
+      border-radius: 25px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-top: 2rem;
+      transition: all 0.3s ease;
     }
-    .btn-main:hover {
-      transform: scale(1.05);
+    .cta-button:hover {
+      background: #f1c40f;
+      color: #1c1c1e;
     }
-
-    /* Effet de micro-interaction pour le texte */
-    @keyframes floatText {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-10px); }
+    /* Animation slide-in pour les titres */
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
     }
-
-    /* Style pour l'iframe de la vidéo */
+    /* Animation de tremblement pour le CTA sticky */
+    @keyframes shake {
+      0% { transform: translate(1px, 1px); }
+      100% { transform: translate(-1px, -1px); }
+    }
+    /* Section Vidéo et fonctionnalités */
     .video-container {
       width: 100%;
       max-width: 800px;
       aspect-ratio: 16 / 9;
-      overflow: hidden;
       border-radius: 10px;
-      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      margin-top: 3rem;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    }
+    .feature {
+      margin-top: 3rem;
+      padding: 2rem;
+      background: #2e2e30;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      max-width: 700px;
+    }
+    .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 8px 20px rgba(241, 196, 15, 0.2);
+    }
+    /* Sticky CTA */
+    .sticky-cta {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #f1c40f;
+      color: #1c1c1e;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      box-shadow: 0px 4px 10px rgba(241, 196, 15, 0.5);
+      animation: shake 0.5s infinite alternate;
+      z-index: 100;
+      font-weight: 700;
+      cursor: pointer;
+      text-transform: uppercase;
     }
   </style>
 </head>
 <body>
 
-  <!-- Section Hero avec message principal -->
-  <section class="hero bg-gradient-to-r from-black to-gray-800 text-center">
-    <h1 class="title-main">Votre levée de fonds en 3 jours ouvrés</h1>
-    <p class="subtitle">Sélection et envoi de dossiers de demande de subventions et aides automatiquement...</p>
-    <button class="btn-main mt-6">Commencer</button>
+  <!-- Section Hero -->
+  <section class="hero">
+    <h1 class="main-title">Votre levée de fonds en 3 jours</h1>
+    <p class="subtitle">Sélection et envoi de dossiers de demande de subventions et aides automatiquement, pour un gain de temps et une réussite optimale.</p>
+    <button class="cta-button">Commencer</button>
   </section>
 
   <!-- Section Vidéo Démo -->
-  <section class="video-demo bg-gray-900 text-center">
-    <h2 class="text-2xl font-bold text-cyan-400 mb-6">Découvrez la démo en vidéo</h2>
+  <section class="video-demo">
+    <h2 class="main-title">Découvrez la démo</h2>
     <div class="video-container">
       <iframe src="https://www.veed.io/embed/5c04129f-ecd8-4b26-bf4c-d4a16093c371" width="100%" height="100%" frameborder="0" allow="fullscreen"></iframe>
     </div>
-    <p class="mt-4 text-gray-400">Car une belle démo vaut mieux que 1000 mots</p>
+  </section>
+
+    <!-- Section CTA final -->
+    <section class="cta">
+        <h2 class="main-title">On reste en contact?</h2>
+        <p class="subtitle">Des nouveautés arrivent, cela serait dommage de les rater !</p>
+        <form action="#" method="POST" class="flex flex-col md:flex-row justify-center items-center gap-4">
+          <input type="email" name="email" placeholder="Votre adresse email" required class="px-4 py-2 bg-gray-800 border border-gray-600 text-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400">
+          <button type="submit" class="cta-button">S'inscrire</button>
+        </form>
+      </section>
+  <!-- Section Processus / Bénéfices -->
+  <<!-- Section Processus / Bénéfices -->
+<section class="container mx-auto py-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+    <div class="bg-blue-50 p-6 rounded-lg shadow-lg transition duration-300 transform hover:scale-105">
+      <!-- Icône emoji pour représenter les clients satisfaits -->
+      <div class="text-5xl mb-2">💼</div>
+      <h4 class="text-lg font-semibold mb-2 text-blue-700">Clients Satisfaits</h4>
+      <p class="text-gray-600">+100 entreprises clientes satisfaites</p>
+    </div>
+  
+    <div class="bg-blue-50 p-6 rounded-lg shadow-lg transition duration-300 transform hover:scale-105">
+      <!-- Icône emoji pour représenter le gain de temps -->
+      <div class="text-5xl mb-2">⏱️</div>
+      <h4 class="text-lg font-semibold mb-2 text-blue-700">Gain de Temps</h4>
+      <p class="text-gray-600">70% de gain de temps en moyenne</p>
+    </div>
+  
+    <div class="bg-blue-50 p-6 rounded-lg shadow-lg transition duration-300 transform hover:scale-105">
+      <!-- Icône emoji pour représenter les fonds débloqués -->
+      <div class="text-5xl mb-2">💸</div>
+      <h4 class="text-lg font-semibold mb-2 text-blue-700">Fonds  déjà levée</h4>
+      <p class="text-gray-600">+1M€ débloqués</p>
+    </div>
+  </section>
+  
   </section>
 
   <!-- Section Fonctionnalités -->
-  <section class="features bg-gray-900 text-center">
-    <h2 class="text-2xl font-bold text-cyan-400">Fonctionnalités</h2>
-    <div class="container mx-auto flex flex-wrap justify-center gap-6 mt-8">
-      <div class="card">
-        <h3 class="text-xl font-semibold text-cyan-400 mb-3">Automatisation IA</h3>
-        <p class="text-gray-300">Libérez-vous des tâches administratives grâce à notre outil d'automatisation par IA...</p>
-      </div>
-      <div class="card">
-        <h3 class="text-xl font-semibold text-cyan-400 mb-3">Optimisation du Financement</h3>
-        <p class="text-gray-300">Optimisez vos chances de financement avec notre solution d'IA dédiée aux startups et PME...</p>
-      </div>
+  <section class="features">
+    <div class="feature">
+      <h3 class="feature-title">Automatisation IA</h3>
+      <p class="feature-description">Libérez-vous des tâches administratives grâce à notre outil d'automatisation par IA...</p>
+    </div>
+    <div class="feature">
+      <h3 class="feature-title">Optimisation du Financement</h3>
+      <p class="feature-description">Optimisez vos chances de financement avec notre solution d'IA dédiée aux startups et PME...</p>
     </div>
   </section>
 
-  <!-- Section Témoignages avec style minimaliste -->
-  <section class="testimonials bg-gray-800 text-center py-20">
-    <h2 class="text-2xl font-bold text-cyan-400 mb-8">Ce que disent nos clients</h2>
-    <div class="container mx-auto flex flex-col md:flex-row justify-center gap-6">
-      <div class="card">
-        <p class="text-gray-300">"Un service formidable qui a vraiment simplifié notre processus !"</p>
-        <p class="mt-4 text-sm text-gray-400">- Doudou, chargé de BPI</p>
-      </div>
-      <div class="card">
-        <p class="text-gray-300">"Un outil indispensable pour les entreprises !"</p>
-        <p class="mt-4 text-sm text-gray-400">- PA, ancien associé de Madoff Family fond d'investissement</p>
-      </div>
+  <!-- Section Témoignages -->
+  <section class="testimonials">
+    <h2 class="main-title">Ce que disent nos clients</h2>
+    <div class="testimonial">
+      <p>"Un service formidable qui a vraiment simplifié notre processus !"</p>
+      <p class="testimonial-name">- Doudou, chargé de BPI</p>
+    </div>
+    <div class="testimonial">
+      <p>"Un outil indispensable pour les entreprises !"</p>
+      <p class="testimonial-name">- PA, ancien associé de Madoff Family fond d'investissement</p>
     </div>
   </section>
 
-  <!-- Section Contact & CTA final -->
-  <section class="cta bg-black text-center py-20">
-    <h2 class="text-2xl font-bold text-cyan-400 mb-4">On reste en contact?</h2>
-    <p class="subtitle mb-8">Des nouveautés arrivent, cela serait dommage de les rater !</p>
-    <form action="#" method="POST" class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
-      <input type="email" name="email" placeholder="Votre adresse email" required class="px-4 py-2 rounded-md bg-gray-700 border border-gray-600 text-gray-200 focus:ring-2 focus:ring-cyan-400">
-      <button type="submit" class="btn-main">S'inscrire</button>
-    </form>
-  </section>
 
-  <!-- Section Pied de Page -->
-  <footer class="bg-gray-900 text-gray-400 py-8 text-center">
-    <div class="container mx-auto">
-      <p class="text-cyan-400 font-bold">Contactez-nous</p>
-      <p>Paris et la Colle-sur-Loup, France</p>
-      <div class="flex justify-center space-x-4 mt-4">
-        <a href="#" class="hover:text-cyan-300">Facebook</a>
-        <a href="#" class="hover:text-cyan-300">Twitter</a>
-        <a href="#" class="hover:text-cyan-300">Instagram</a>
-      </div>
-      <div class="text-center text-gray-500 text-sm mt-6">© 2024 Fundraise.ia. Tous droits réservés.</div>
-    </div>
+
+ 
+
+  <!-- Footer -->
+  <footer class="text-center py-10">
+    <p class="text-sm text-gray-500">© 2024 Fundraise.ia. Tous droits réservés.</p>
   </footer>
+
+</body>
+</html>
+
 
 </body>
 </html>
